@@ -23,6 +23,7 @@ export function loadMoviesSuccess(movies) {
   };
 }
 export function deleteMovie(choosenMovieId) {
+  console.log(choosenMovieId);
   return {
     type: types.DELETE_MOVIE_OPTIMISTIC,
     choosenMovieId
@@ -55,7 +56,7 @@ export function loadMovies() {
   return function (dispatch) {
     dispatch(beginApiCall());
     const apikey = process.env.REACT_APP_CENIMA_API_KEY;
-    const url = "http://www.omdbapi.com/?t=";
+    const url = "https://www.omdbapi.com/?t=";
     let promiseArray = initialMovies.map(movie =>
       axios.get(
           `${url}${movie.title}&y=${movie.year}${apikey}` 
@@ -89,7 +90,7 @@ export function addMovie({ movie }) {
   return function (dispatch) {
     dispatch(beginApiCall());
     const apikey = process.env.REACT_APP_CENIMA_API_KEY;
-    const url = "http://www.omdbapi.com/?t=";
+    const url = "https://www.omdbapi.com/?t=";
     return axios
       .get(
         `${url}${movie.title}&y=${movie.year}${apikey}` 

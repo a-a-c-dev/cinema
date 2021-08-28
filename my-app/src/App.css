@@ -293,9 +293,6 @@ body {
 .info-form{
   justify-content: space-between;
 }
-
-
-
 .form-group > label {
   position: absolute;
   background-color: white;
@@ -336,21 +333,28 @@ body {
   color: #ffffff;
   background-color: black;
 }
+.ReactModalPortal form{
+  position: relative;
+}
 .delete-modal-footer{
   position: absolute;
-  bottom: 5%;
-  left: 70%;
-  width: 100%;
+  bottom: -15%;
+  right: 5%;
+  max-width: 200px;
 
 }
 .delete-modal-footer > .btn {
   color: #ffffff;
   background-color: black;
 }
-
 .delete-modal-footer :first-child {
   margin: 0 .5rem  0 0;
 }
+
+.Toastify__toast-body{
+  font-size: 1rem;
+}
+
 
 
 @media (max-width: 480px) {
@@ -382,9 +386,14 @@ body {
   .list-group-item{
     border: none;
   }
+  .info-container{
+    padding: 1.25rem .5rem 1rem;
+    justify-content: space-around;
+  }
   .info-container > span {
     font-size: 0.8rem;
     line-height: 1.1rem;
+    width: 50%;
   }
 }
 @media (min-width: 481px) and (max-width: 992px) {

@@ -6,9 +6,10 @@ const DeleteConfirmationModal = ({
   onDelete,
   choosenMovie
 }) => {
+  console.log(choosenMovie.imdbid)
   return (
     <div>
-      <form onSubmit={onDelete} data-movieid={choosenMovie.imdbID}>
+      <form onSubmit={onDelete} data-movieid={choosenMovie.imdbid}>
         <div className="modal-header">
           <h1>{title} </h1>
           <button
@@ -21,13 +22,13 @@ const DeleteConfirmationModal = ({
           </button>
         </div>
         <div className="modal-body">
-          <p>Are you sure, you`ll like to delete the movie {choosenMovie.Title}?</p>
+          <p>Are you sure, you`ll like to delete the movie {choosenMovie.title}?</p>
         </div>
         <div className="delete-modal-footer">
           {" "}
           <button
             type="button"
-            className="btn "
+            className="btn"
             onClick={handleClose}
           >
             Close
@@ -35,7 +36,7 @@ const DeleteConfirmationModal = ({
           <button
             type="submit"
             className="btn "
-            data-movieid={choosenMovie.imdbID}
+            data-movieid={choosenMovie.imdbid}
           >
             Submit
           </button>

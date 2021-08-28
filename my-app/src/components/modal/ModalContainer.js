@@ -13,7 +13,7 @@ const MODAL_TYPES = {
 const customStyles = {
   content: {
     width: "75%",
-    maxWidth:"600px",
+    maxWidth:"750px",
     top: "50%",
     left: "50%",
     right: "auto",

@@ -87,12 +87,12 @@ class App extends Component {
       poster:currentPoster,
       imdbid: currentMovieID
     };
-    console.log(savedMovie)
     this.props.updateMovie(savedMovie);
     toast.success("Movie Updated!");
   };
   handleDelete = event => {
     const choosenMovieId = event.target.dataset.movieid;
+    console.log("choosenMovieId",choosenMovieId ,event.target.dataset.movieid)
     event.preventDefault();
     this.props.deleteMovie({ choosenMovieId });
     toast.success("Movie Deleted!");

@@ -7,23 +7,16 @@ export default function listReducer(state = initialState.movies, action) {
       return action.movies;
     case types.ADD_MOVIE_SUCCESS:
       return [...state, Object.assign({}, action.movie)];
-    case types.UPDATE_MOVIES_OPTIMISTIC:
-      state.map(movie =>
-        
-        console.log("ction.savedMovie.savedMovie",
-        movie.imdbid)
-        
-      );
-      
-      return state.map(movie =>
-        
-        movie.imdbid === action.savedMovie.savedMovie.imbdid
-          ? action.savedMovie.savedMovie
-          : movie
+    case types.UPDATE_MOVIES_OPTIMISTIC:      
+      return state.map(movie => 
+         movie.imdbid === action.savedMovie.savedMovie.imdbid
+        ? action.savedMovie.savedMovie
+        : movie  
       );
     case types.DELETE_MOVIE_OPTIMISTIC:
       return state.filter(
-        movie => movie.imdbID !== action.choosenMovieId.movieId.choosenMovieId
+        movie => 
+         movie.imdbid !== action.choosenMovieId.movieId.choosenMovieId
       );
 
     default:
