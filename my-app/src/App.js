@@ -67,7 +67,7 @@ class App extends Component {
     );
   };
   handleError = () => {
-    toast.error("Error:" + this.props.errors );
+    toast.error(`Error: ${this.props.errors}` );
     this.props.cleanError();
   };
   handleAdd = (event, movie) => {
