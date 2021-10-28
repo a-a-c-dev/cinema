@@ -6,6 +6,7 @@ export default function apiCallStatusReducer(
   action
 ) {
   if (action.type === types.API_CALL_ERROR) {
+    console.log(action.error)
     return [...state, action.error];
   }
   if (action.type === types.CLEAN_ERROR) {

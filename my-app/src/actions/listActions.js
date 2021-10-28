@@ -42,6 +42,7 @@ export function addMovieSuccess(movie) {
   };
 }
 export function handleErrorMovie(error) {
+  console.log(error)
   return {
     type: types.API_CALL_ERROR,
     error
@@ -104,9 +105,11 @@ export function addMovie({ movie }) {
             movie[ar[i]] = movie[lowerCasePropertyName];
             delete movie[lowerCasePropertyName];
         }
-        movie.Response === "False"
-          ? dispatch(handleErrorMovie(movie.Error))
+        movie.response === "False"
+          ? dispatch(handleErrorMovie(movie.error))
           : dispatch(addMovieSuccess(movie));
+        console.log(movie)
+        
       })
       .catch(error => {
         dispatch(handleErrorMovie(error.Error));

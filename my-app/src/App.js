@@ -26,7 +26,8 @@ class App extends Component {
         director: "",
         runtime: 0,
         genre: ""
-      }
+      },
+      errors:[]
     };
   }
   openAddMovieModal = () => {
@@ -65,8 +66,8 @@ class App extends Component {
       "delete"
     );
   };
-  handleError = error => {
-    toast.error("Error:" + error);
+  handleError = () => {
+    toast.error("Error:" + this.props.errors );
     this.props.cleanError();
   };
   handleAdd = (event, movie) => {
@@ -97,9 +98,14 @@ class App extends Component {
     this.props.deleteMovie({ choosenMovieId });
     toast.success("Movie Deleted!");
   };
+  componentDidUpdate(prevProps) {
+    if(this.props.erros !==prevProps.errors && this.props.errors.length>0){
+        console.log(this.props.errors.length)
+       this.handleError()
+    }
+  }
   render() {
-    const { movies, loading, error } = this.props;
-    const { errors } = this.state;
+    const { movies, loading } = this.props;
     return (
       <>
         <Header />
@@ -114,8 +120,7 @@ class App extends Component {
                 handleDelete={this.openDeleteConfirmation}
               />
               <Footer />
-              <ModalContainer errors={errors} />
-              {error.length > 0 ? this.handleEror(error) : null}
+              <ModalContainer  />
             </>
           )}
       </>
@@ -128,7 +133,7 @@ const mapStateToProps = (state) => {
   return {
     movies: state.movies.length === 0 ? [] : state.movies,
     loading: state.apiCallsInProgress > 0,
-    error: state.severError.length === 0 ? [] : state.severError
+    errors: state.severError.length === 0 ? [] : state.severError
   };
 }
 const mapDispatchToProps = (dispatch) => {
