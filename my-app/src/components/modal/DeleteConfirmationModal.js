@@ -6,12 +6,11 @@ const DeleteConfirmationModal = ({
   onDelete,
   choosenMovie
 }) => {
-  console.log(choosenMovie.imdbid)
   return (
-    <div>
+    <div  className="modal-content">
       <form onSubmit={onDelete} data-movieid={choosenMovie.imdbid}>
         <div className="modal-header">
-          <h1>{title} </h1>
+          <h2>{title} </h2>
           <button
             type="button"
             className="close"
@@ -21,10 +20,10 @@ const DeleteConfirmationModal = ({
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="modal-body">
+        <div className="modal-body delete">
           <p>Are you sure, you`ll like to delete the movie {choosenMovie.title}?</p>
         </div>
-        <div className="delete-modal-footer">
+        <div className="modal-footer">
           {" "}
           <button
             type="button"

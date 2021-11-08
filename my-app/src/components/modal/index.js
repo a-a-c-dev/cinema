@@ -1,11 +1,12 @@
 import AddMovieModal from "./AddMovieModal";
-import InfoModal from "./InfoModal";
+import EditModal from "./EditModal";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
-
+import InformationModal from "./InformationModal";
 const modalTypes = {
   AddMovieModal,
-  InfoModal,
-  DeleteConfirmationModal
+  EditModal,
+  DeleteConfirmationModal,
+  InformationModal
 };
 
 export default modalTypes;

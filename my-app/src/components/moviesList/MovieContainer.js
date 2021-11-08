@@ -8,29 +8,38 @@ export const MovieContainer = ({
   prevIndexSlider,
   nextIndexSlider,
   movieIndex,
-  handleInfo,
-  handleDelete
+  handleEdit,
+  handleDelete,
+  handleInfo
   }) => {
     const {title, year, imdbid, director, runtime, genre, poster} = movie;
     return(
       <div className={
         movieIndex === activeIndexSlider ? 
-        "list-group-item carousel__slide carousel__slide--active"
+        "carousel__slide carousel__slide--active"
         :  movieIndex === nextIndexSlider?
-         "list-group-item carousel__slide carousel__slide--next"
+         "carousel__slide carousel__slide--next"
         : movieIndex === prevIndexSlider?
-         "list-group-item carousel__slide carousel__slide--prev"
-        :"list-group-item carousel__slide"
+         "carousel__slide carousel__slide--prev"
+        :"carousel__slide"
       }>
         <div className="btn-container"> 
+          <button
+            className="btn"
+            type="button"
+            onClick={() => handleEdit(movie)}
+          >
+            {" "}
+            <i className="fa fa-ellipsis-v" />{" "}
+          </button>
           <button
             className="btn"
             type="button"
             onClick={() => handleInfo(movie)}
           >
             {" "}
-            <i className="fa fa-ellipsis-v" />{" "}
-          </button>
+            <i className=" fa fas fa-eye"></i>{" "}
+          </button>      
           <button
           className="btn"
           type="button"
@@ -40,7 +49,7 @@ export const MovieContainer = ({
         </button>
         </div>     
         <div className="image-container">
-          <img src={poster==="N/A"?defaultPoster:poster} alt="Movie Poster"></img>
+          <img src={poster==="N/A"?defaultPoster:poster} alt="Movie Poster"/>
         </div>
         <MovieInfo 
           title={title}

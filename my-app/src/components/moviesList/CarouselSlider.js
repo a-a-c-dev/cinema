@@ -3,7 +3,7 @@ import {MovieContainer} from "./MovieContainer"
 import {CarouselLeftArrow} from "./CarouselLeftArrow";
 import {CarouselRightArrow} from "./CarouselRightArrow";
 
-const CarouselSlider = ({ movies =[], handleInfo, handleDelete }) => {
+const CarouselSlider = ({ movies =[], handleEdit,handleInfo, handleDelete }) => {
   const [indexSlider, setIndexSlider] = useState(1);
   const [activeIndexSlider, setActiveIndexSlider] = useState(1);
   const prevMovie = event => {
@@ -23,7 +23,6 @@ const CarouselSlider = ({ movies =[], handleInfo, handleDelete }) => {
 
 useEffect(() => {
   activeSlider(indexSlider);
-  console.log(activeIndexSlider)
 }, [indexSlider]); 
 
 
@@ -32,7 +31,7 @@ useEffect(() => {
   return (
       <div className="carousel-slider" >
         <CarouselRightArrow nextMovie={nextMovie}/>
-        <div className="list-group ">
+        <div className="carousel-slider-container">
           {movies.map((movie,index) => {
               return(
                 <MovieContainer 
@@ -42,6 +41,7 @@ useEffect(() => {
                   activeIndexSlider={activeIndexSlider}
                   prevIndexSlider={activeIndexSlider-1<0?movies.length-1:activeIndexSlider-1}
                   nextIndexSlider={activeIndexSlider+1>movies.length-1?0:activeIndexSlider+1}
+                  handleEdit={handleEdit}
                   handleInfo={handleInfo}
                   handleDelete={handleDelete}/>
               ) 

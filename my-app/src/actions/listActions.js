@@ -10,7 +10,7 @@ export const initialMovies = [
   { title: "The Shawshank Redemption", year: "1994" },
   { title: "The Pursuit Of Happyness", year: "2006" },
   { title: "Fight Club", year: "1999" },
-  { title: "Schindler`s List ", year: "1993" },
+  { title: "Defiance ", year: "2008" },
   { title: "Forrest Gump", year: "1994" },
   { title: "Batman begins ", year: "2005" },
   { title: "300", year: "2006" }
@@ -42,7 +42,7 @@ export function addMovieSuccess(movie) {
   };
 }
 export function handleErrorMovie(error) {
-  console.log(error)
+  console.log("at handleErrorMovie", error)
   return {
     type: types.API_CALL_ERROR,
     error
@@ -111,9 +111,10 @@ export function addMovie({ movie }) {
         console.log(movie)
         
       })
-      .catch(error => {
-        dispatch(handleErrorMovie(error.Error));
-        throw error.Error;
+      .catch(err => {
+        console.error(err);
+        dispatch(handleErrorMovie(err.Error));
+       // throw error.Error;
       });
   };
 }

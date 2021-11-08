@@ -5,24 +5,27 @@ import { hideModal } from "../../actions/modalActions";
 import { default as modalTypes } from "./index";
 
 const MODAL_TYPES = {
-  info: modalTypes.InfoModal,
+  edit: modalTypes.EditModal,
   addMovie: modalTypes.AddMovieModal,
-  delete: modalTypes.DeleteConfirmationModal
+  delete: modalTypes.DeleteConfirmationModal,
+  info:modalTypes.InformationModal
 };
 
 const customStyles = {
   content: {
-    width: "75%",
-    maxWidth:"750px",
+    width: "85%",
+    maxWidth:"600px",
     top: "50%",
     left: "50%",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    padding:"10px 25px 75px",
+    padding: "2vh 3vw 4vh",
     zIndex:"999",
     transform: "translate(-50%, -50%)",
-    overflowX: 'hidden'
+    overflowX: 'hidden',
+    border:"none",
+    background: "rgb(0 0 0)"
   }
 };
 

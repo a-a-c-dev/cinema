@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { connect } from "react-redux";
 import Header from "./common/Header";
 import { Footer } from "./common/Footer";
-import Spinner from "./common/Spinner";
+import {Spinner} from "./common/Spinner";
 import ModalContainer from "./components/modal/ModalContainer";
 import CarouselSlider from "./components/moviesList/CarouselSlider";
 import {ListHeader} from "./components/moviesList/ListHeader";
@@ -15,6 +15,7 @@ import {
 } from "./actions/listActions";
 import { showModal } from "./actions/modalActions";
 import "./App.css";
+
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,17 @@ class App extends Component {
       errors:[]
     };
   }
+  
+  openInfoModal = infoMovie => {
+    this.props.showModal(
+      {
+        open: true,
+        title: "Movie Information",
+        movie: infoMovie
+      },
+      "info"
+    );
+  };
   openAddMovieModal = () => {
     this.props.showModal(
       {
@@ -41,17 +53,17 @@ class App extends Component {
       "addMovie"
     );
   };
-  openInfoModal = updatedMovie => {
+  openEditModal = updatedMovie => {
     let infoMovie = updatedMovie;
     this.props.showModal(
       {
         open: true,
-        title: "Movie Info",
+        title: "Edit Movie",
         movie: infoMovie,
         handleChange: this.handleChange,
         handleUpdate: this.handleUpdateMovie
       },
-      "info"
+      "edit"
     );
   };
   openDeleteConfirmation = selectedMovie => {
@@ -93,7 +105,6 @@ class App extends Component {
   };
   handleDelete = event => {
     const choosenMovieId = event.target.dataset.movieid;
-    console.log("choosenMovieId",choosenMovieId ,event.target.dataset.movieid)
     event.preventDefault();
     this.props.deleteMovie({ choosenMovieId });
     toast.success("Movie Deleted!");
@@ -117,6 +128,7 @@ class App extends Component {
               <CarouselSlider
                 movies={movies}
                 handleInfo={this.openInfoModal}
+                handleEdit={this.openEditModal}
                 handleDelete={this.openDeleteConfirmation}
               />
               <Footer />
