@@ -23,7 +23,6 @@ const CarouselSlider = ({ movies =[], handleEdit,handleInfo, handleDelete }) => 
 
   const nextMovie =useMemo(()=> event => {
     event.preventDefault();
-    console.log("nextIndexSlider",nextIndexSlider)
     let lastIndex = movies.length-1;
     (indexSlider+1 > lastIndex)? setIndexSlider(0): setIndexSlider(indexSlider+1);
     ( activeIndexSlider-1<0)?setPrevIndexSlider(currentMovies.length-1):setPrevIndexSlider(activeIndexSlider-1);

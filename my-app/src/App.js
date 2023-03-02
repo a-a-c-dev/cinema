@@ -79,7 +79,7 @@ class App extends Component {
     );
   };
   handleError = () => {
-    toast.error(`Error: ${this.props.errors}` );
+    toast.error(`Error: ${this.props.errors?this.props.errors:'something went wrong '}` );
     this.props.cleanError();
   };
   handleAdd = (event, movie) => {
@@ -118,8 +118,8 @@ class App extends Component {
   };
 
   componentDidUpdate(prevProps,prevState) {
-    if(this.props.erros !==prevProps.errors && this.props.errors.length>0){
-       this.handleError()
+    if(this.props.erros !==prevProps.errors){
+      if(!this.props.errors)this.handleError()
     }
     
     if(this.props.movies.length !== prevProps.movies.length ){
@@ -141,9 +141,6 @@ class App extends Component {
       ))
     }}
 
-  if(this.props.erros !==prevProps.errors && this.props.errors.length>0){
-       this.handleError()
-      }
   
   }
 

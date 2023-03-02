@@ -3,28 +3,28 @@ import * as actions from '../actions/modalActions';
 
 
 describe("modal reducer", () => {
-    /* it("Preform hide modal action", () => {
+     it("Preform hide modal action", () => {
          const initialState = {
              modal: {
                  modalType: "",
                  modalProps: {}
              }
          }
-         let expectedState = {
+         const expectedState = {
              modal: {
-                 modalType: "add",
+                 modalType: "addMovie",
                  modalProps: {
                      isOpen: true
                  }
              }
          }
-         const action = actions.showModal(expectedState.modal);
+        const action = actions.showModal(expectedState.modal);
          //act
          const newState = modalReducer(initialState.modal, action);
-         //assert
-         expect(newState.modal).toEqual(expectedState.modal);
+         //assert   
+         expect(newState).toEqual(expectedState.modal);
      })
- */
+
     it("Preform hide modal action", () => {
         const initialState = {
             modal: {

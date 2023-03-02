@@ -1,12 +1,9 @@
 import React from 'react';
-import { Footer } from './Footer';
+import Footer  from './Footer';
 import { shallow } from "enzyme";
 
 describe("Footer Component", () => {
-    let wrapper
-    beforeEach(() => {
-        wrapper = shallow(<Footer />);
-    });
+    const wrapper = shallow(<Footer/>) 
     it("Should have 1 div with className app-footer", () => {
 
         expect(wrapper.find('div').length).toBe(1);

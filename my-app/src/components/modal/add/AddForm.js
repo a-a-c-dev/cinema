@@ -17,15 +17,16 @@ export const AddForm =({
     const fieldIsValid = useCallback( () => {
       const errors = {};
       const { title, year } = movie;
-      const yearPattern = /^(19|20)\d{1}$/;
+      const yearPattern = /^(19|20)\d{2}$/;
       const textPattern = /^[a-zA-Z0-9 .!?"-]+$/
       if (!title) errors.titleRequired = "*Title is required";
       if (!title.match(textPattern)) errors.validTitle = "* Title is not valid, please insert title in English";
       if (!year) errors.yearRequired = "* Year is required";
       if (!year.match(yearPattern)) errors.validYear = "* Valid year is required";
-      setErrors(errors);
+      if(!errors.length)setErrors(()=>errors);
+
       return (Object.keys(errors).length === 0) 
-    },[movie.title, movie.year])
+    },[movie])
     const debounce = fn => {
       let timerId;
       return (...args) => {
@@ -34,9 +35,6 @@ export const AddForm =({
       }
     };
     const handleChange = (name, value) => {
-      //const { name, value } = event.target;
-      //event.preventDefault();
-     fieldIsValid();
       setMovie(prevMovie => ({
         ...prevMovie,
         [name]: value
@@ -46,7 +44,7 @@ export const AddForm =({
     const optimizedhandle = useCallback(debounce(handleChange),[]);
     
     const handleSubmit = event =>{
-      event.preventDefualt();
+      event.preventDefault();
       if(!fieldIsValid()) return
       handleAdd(event, movie);
     }
@@ -55,7 +53,7 @@ export const AddForm =({
         <AddBody errors={errors} handleChange={optimizedhandle}/>
         <AddFooter
                 handleClose={handleClose}
-                
+              
             />
     </form>
   );

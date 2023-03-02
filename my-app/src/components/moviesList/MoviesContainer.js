@@ -1,4 +1,4 @@
-import React, {Suspense, lazy} from 'react';
+import React, {Suspense, lazy } from 'react';
 import {Spinner} from '../common/Spinner';
 
 const MovieContainer = lazy(() => import("./MovieContainer"));
@@ -18,7 +18,7 @@ const MoviesContainer = (
               {currentMovies.map((movie,index) => {
                   return(
                     <Suspense                    
-                      key={movie.imdbid}
+                      key={`${index}--${movie.imdbid}`}
                       fallback={<Spinner />}>
                       <MovieContainer 
                           movie={movie}

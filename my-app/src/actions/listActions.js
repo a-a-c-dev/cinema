@@ -25,7 +25,6 @@ export function loadMoviesSuccess(movies) {
   };
 }
 export function deleteMovie(choosenMovieId) {
-  console.log(choosenMovieId);
   return {
     type: types.DELETE_MOVIE_OPTIMISTIC,
     choosenMovieId
@@ -59,7 +58,6 @@ export function cleanError() {
 export function loadMovies() {
   return function (dispatch) {
     dispatch(beginApiCall());
-
     let promiseArray = initialMovies.map(movie =>
       axios.get(`${url}${movie.title}&y=${movie.year}${apikey}` )
     );
@@ -83,14 +81,13 @@ export function loadMovies() {
         dispatch(handleErrorMovie(err));
       }
     }
-    
     addMoviesRequests();
   };
 }
 export function addMovie({ movie }) {
   return function (dispatch) {
   dispatch(beginApiCall());
-  const {title,year} = movie
+  const {title,year} = movie;
   const addMovieRequest = async () => {
     try{
         const res = await axios.get(`${url}${title}&y=${year}${apikey}`);

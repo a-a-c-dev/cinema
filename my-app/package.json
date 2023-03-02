@@ -9,6 +9,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "font-awesome": "^4.7.0",
     "module_name": "^1.0.0",
+    "node-fetch": "^2.6.9",
     "react": "^16.10.2",
     "react-axios": "^2.0.3",
     "react-dom": "^16.10.2",
@@ -19,7 +20,6 @@
     "react-test-renderer": "^16.9.0",
     "react-toastify": "^5.3.2",
     "redux": "^4.0.1",
-    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -42,6 +42,7 @@
     "babel-preset-react-app": "^7.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "fetch-mock": "^7.5.1"
+    "fetch-mock": "^7.7.3",
+    "redux-mock-store": "^1.5.4"
   }
 }

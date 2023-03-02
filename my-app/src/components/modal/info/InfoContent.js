@@ -4,6 +4,7 @@ import {InfoMovieTitle} from './InfoMovieTitle';
 
 
 export const InfoContent = ({movie})=>{
+  
     const {title, year, director, runtime, genre,  actors,country, boxoffice,plot} = movie;
     return (
         <div className="info-modal-content">
