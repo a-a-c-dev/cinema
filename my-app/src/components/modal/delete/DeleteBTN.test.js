@@ -1,15 +1,16 @@
 import React from 'react';
 import {  mount } from "enzyme";
-import {EditBTN} from './EditBTN';
+import {DeleteBTN} from './DeleteBTN';
 
 
 
-describe('Edit BTN  Component', () => {
+describe('Delete BTN  Component', () => {
 
     it('making sure the id that been passed is the same Id  ',   () => {
-        const wrapper = mount(<EditBTN data-movieid={'12345'}/>);
+        const wrapper = mount(<DeleteBTN data-movieid={'12345'}/>);
         expect(wrapper.prop('data-movieid')).toEqual('12345');
 
         expect(wrapper.find('button').length).toBe(1);
+        expect(wrapper.find('button').text()).toEqual('Submit');
     })
 })

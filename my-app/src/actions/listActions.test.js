@@ -26,8 +26,9 @@ const mockStore = configureMockStore(middlewares);
       
         await store.dispatch(listActions.loadMovies());
         setTimeout(()=>{
-            
-        },5000)
+            expect(store.getActions).toEqual(expectedActions)
+
+        },1000)
         
       });
       
@@ -41,8 +42,8 @@ const mockStore = configureMockStore(middlewares);
         
           await store.dispatch(listActions.addMovieSuccess());
           setTimeout(()=>{
-              
-          },5000)
+              expect(store.getActions).toEqual(expectedActions)
+          },1000)
     })
   });
 
