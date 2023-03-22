@@ -20,15 +20,15 @@ describe("modal reducer", () => {
          }
         const action = actions.showModal(expectedState.modal);
          //act
-         const newState = modalReducer(initialState.modal, action);
+        const newState = modalReducer(initialState.modal, action);
          //assert   
-         expect(newState).toEqual(expectedState.modal);
+        expect(newState).toEqual(expectedState.modal);
      })
 
     it("Preform hide modal action", () => {
         const initialState = {
             modal: {
-                modalType: "",
+                modalType: null,
                 modalProps: {}
             }
         }
@@ -44,7 +44,7 @@ describe("modal reducer", () => {
         //act
         const newState = modalReducer(state.modal, action);
         //assert
-        expect(newState.modal).toEqual(initialState.modal);
+        expect(newState).toEqual(initialState.modal);
     })
 
 

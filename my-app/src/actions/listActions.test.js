@@ -54,7 +54,7 @@ describe("Preform list action", () => {
         const savedMovie = { title: 'batman'};
         const expectedAction = {
             type: types.UPDATE_MOVIES_OPTIMISTIC,
-            savedMovie
+            savedMovie:{savedMovie : { title: 'batman'}}
         };
         // act 
         const action = listActions.updateMovie(savedMovie);
@@ -64,17 +64,18 @@ describe("Preform list action", () => {
     });
     it('should  assert a delete movie action ', () => {
         //arrange
-        const choosenMovieId=  "tt1809398";
+        const choosenMovieId= "tt1809398";
         const expectedAction = {
             type: types.DELETE_MOVIE_OPTIMISTIC,
-            choosenMovieId
+            choosenMovieId:{movieId:{ choosenMovieId:"tt1809398"}}
         };
         // act 
         const action = listActions.deleteMovie(choosenMovieId);
         //assert 
         expect(action).toEqual(expectedAction);
     });
-    it('should  assert a load movies success action ', () => {
+    it('should  assert a load movies success action '
+    , () => {
         //arrange
         const movies = [
             { title: "Gladiator ", year: "2000" },

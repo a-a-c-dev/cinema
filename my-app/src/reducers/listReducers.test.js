@@ -29,7 +29,7 @@ describe("list reducer", () => {
     });
     it("Should update selected movie", () => {
         let listInitialState = [{ title: "batman", imdbid: 1 }, { title: "limitless", imdbid: 2 }];
-        const moviePassed = {savedMovie : {title: "batman2", imdbid: 1}  };
+        const moviePassed =  {title: "batman2", imdbid: 1}  ;
         const action = actions.updateMovie(moviePassed);
       
         //act
@@ -42,7 +42,7 @@ describe("list reducer", () => {
     it("Should delete one item from the list", () => {
     let listInitialState = [    { imdbid: "tt0111161", title: "The Shawshank Redemption" },    { imdbid: "tt0068646", title: "The Godfather" },    { imdbid: "tt0468569", title: "The Dark Knight" },  ];
     
-    const choosenMovieId = { movieId: { choosenMovieId: "tt0068646" } };
+    const choosenMovieId =  "tt0068646" ;
     const action = actions.deleteMovie(choosenMovieId);
     
     //act
